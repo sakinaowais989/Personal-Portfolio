@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+  
+  body {
+    font-family: 'Poppins', 'Outfit', 'Sora', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* ========== DARK MODE (DEFAULT) ========== */
+.dark body {
+  background: linear-gradient(135deg, #031826, #05263d, #02111c);
+  color: #FFFFFF;
+}
+
+.dark .glass-card {
+  background: rgba(5, 38, 61, 0.6);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  border-radius: 20px;
+}
+
+.dark .neon-border {
+  border: 1px solid rgba(0, 194, 255, 0.4);
+}
+
+.dark .text-text-light {
+  color: #A9B7C6;
+}
+
+.dark .text-white {
+  color: #FFFFFF;
+}
+
+.dark h1, .dark h2, .dark h3 {
+  color: #FFFFFF;
+}
+
+/* ========== LIGHT MODE ========== */
+.light body {
+  background: linear-gradient(135deg, #f5f7fa, #e8ecf1, #dce1e8);
+  color: #1a1a2e;
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 194, 255, 0.3);
+  border-radius: 20px;
+}
+
+.light .neon-border {
+  border: 1px solid rgba(0, 194, 255, 0.5);
+}
+
+.light .text-text-light {
+  color: #4a5568;
+}
+
+.light .text-white {
+  color: #1a1a2e;
+}
+
+.light h1, .light h2, .light h3 {
+  color: #1a1a2e;
+}
+
+.light .bg-dark-navy {
+  background: linear-gradient(135deg, #e8ecf1, #dce1e8, #d0d5dc);
+}
+
+.light .btn-primary {
+  background: linear-gradient(135deg, #00C2FF, #008DFF);
+  color: #FFFFFF;
+}
+
+.light .btn-pink {
+  background: #FF2E88;
+  color: #FFFFFF;
+}
+
+/* ========== UTILITIES ========== */
+@layer utilities {
+  .text-neon-cyan {
+    color: #00C2FF;
+  }
+  
+  .bg-dark-navy {
+    background: linear-gradient(135deg, #031826, #05263d, #02111c);
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 25px #00C2FF;
+  }
+  
+  .neon-border {
+    border: 1px solid rgba(0, 194, 255, 0.4);
+  }
+  
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00C2FF, #008DFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #00C2FF, #008DFF);
+    color: #031826;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(0, 194, 255, 0.6);
+  }
+  
+  .btn-pink {
+    background: #FF2E88;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 46, 136, 0.4);
+  }
+  
+  .btn-pink:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(255, 46, 136, 0.6);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+/* ========== KEYFRAMES ========== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ========== MOBILE RESPONSIVE FIXES ========== */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  button, 
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .glass-card {
+    border-radius: 16px;
+  }
+  
+  .btn-primary, .btn-pink {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+}
+
+/* ========== SAFE AREA SUPPORT ========== */
+@supports (padding: max(0px)) {
+  .fixed {
+    padding-right: max(0px, env(safe-area-inset-right));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ========== SMOOTH TRANSITIONS ========== */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a {
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 194, 255, 0.2);
+}
